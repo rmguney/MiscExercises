@@ -1,0 +1,67 @@
+<html>
+<body>
+    <form id="inputForm">
+        <label for="num1">Number 1:</label>
+        <input type="number" id="num1" min="0" required><br><br>
+
+        <label for="num2">Number 2:</label>
+        <input type="number" id="num2" min="0" required><br><br>
+
+        <label for="num3">Number 3:</label>
+        <input type="number" id="num3" min="0" required><br><br>
+
+        <label for="num4">Number 4:</label>
+        <input type="number" id="num4" min="0" required><br><br>
+
+        <label for="num5">Number 5:</label>
+        <input type="number" id="num5" min="0" required><br><br>
+
+        <label for="num6">Number 6:</label>
+        <input type="number" id="num6" min="0" required><br><br>
+
+        <label for="num7">Number 7:</label>
+        <input type="number" id="num7" min="0" required><br><br>
+
+        <label for="num8">Number 8:</label>
+        <input type="number" id="num8" min="0" required><br><br>
+
+        <label for="num9">Number 9:</label>
+        <input type="number" id="num9" min="0" required><br><br>
+
+        <label for="num10">Number 10:</label>
+        <input type="number" id="num10" min="0" required><br><br>
+
+        <input type="submit" value="Calculate Average">
+    </form>
+
+    <p>Average: <span id="average"></span></p>
+    <p>Numbers above average: <span id="aboveAverage"></span></p>
+
+    <script>
+        document.getElementById('inputForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+            let num3 = parseFloat(document.getElementById('num3').value);
+            let num4 = parseFloat(document.getElementById('num4').value);
+            let num5 = parseFloat(document.getElementById('num5').value);
+            let num6 = parseFloat(document.getElementById('num6').value);
+            let num7 = parseFloat(document.getElementById('num7').value);
+            let num8 = parseFloat(document.getElementById('num8').value);
+            let num9 = parseFloat(document.getElementById('num9').value);
+            let num10 = parseFloat(document.getElementById('num10').value);
+
+            let numbers = [num1, num2, num3, num4, num5, num6, num7, num8, num9, num10];
+
+            let sum = numbers.reduce((acc, val) => acc + val, 0);
+
+            let average = sum / numbers.length;
+            document.getElementById('average').textContent = average.toFixed(2);
+
+            let aboveAverage = numbers.filter(num => num > average);
+            document.getElementById('aboveAverage').textContent = aboveAverage.join(', ');
+        });
+    </script>
+</body>
+</html>
